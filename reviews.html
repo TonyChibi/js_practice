@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .reviews {
+            border: 1px solid black;
+            border-radius: 6px;
+            padding: 10px 20px;
+        }
+
+        .reviews-box {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .products-box {
+            width: 200px;
+
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .reviews {
+            width: 200px;
+        }
+
+        .review-item {
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            border: 1px solid black;
+            border-radius: 6px;
+        }
+
+        .review-item__text {
+            word-wrap: break-word;
+        }
+
+        input:checked+label {
+            background: linear-gradient(180deg, rgb(252, 254, 255) 30%, rgb(211, 150, 150) 130%);
+        }
+
+        input {
+            display: none;
+        }
+
+        label {
+            display: block;
+            cursor: pointer;
+            padding: 5px 15px;
+            line-height: 34px;
+            border: 1px solid #999;
+            border-radius: 6px;
+            user-select: none;
+            text-align: center;
+        }
+
+        .link-button {
+            width: 150px;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="reviews-box">
+        <div class="products-box">
+
+        </div>
+        <div class="reviews">
+            <h3>Reviews</h3>
+            <div class="product-reviews">
+
+            </div>
+        </div>
+
+    </div>
+    <a href="index2.html"><button class="link-button">see reviews</button></a>
+
+
+    <script src="commentViewer.js">
+
+    </script>
+    <script>
+        viewer();
+
+    </script>
+
+</body>
+
+</html>

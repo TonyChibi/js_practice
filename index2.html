@@ -15,8 +15,16 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            gap: 30px;
 
         }
+
+        .link-button {
+            width: 150px;
+            padding: 15px;
+        }
+
+
 
         .comment-form {
             display: flex;
@@ -36,6 +44,7 @@
 
         .comment-form__input:empty::before {
             content: attr(placeholder);
+            color: gray;
         }
 
 
@@ -52,167 +61,28 @@
 </head>
 
 <body>
-    <div class="images"></div>
 
 
 
     <form class="comment-form" action="#">
-        <label class="comment-form__lable" for="comment">leave your comment</label>
+        <label class="comment-form__lable" for="comment-name">leave your comment</label>
         <!-- <input class="comment-form__input" type="text" name="comment" id="comment"
             placeholder="not less than 50 and no greater than 500 symbols"> -->
+        <input type="text" id="comment-name" class="comment-form__input name-input" placeholder="name of a product">
+        <div class="comment-form__input text-input" contenteditable="true" placeholder="review"></div>
 
-        <div class="comment-form__input" contenteditable="true"
-            placeholder="not less than 50 and no greater than 500 symbols"></div>
 
         <button class="comment-form__button"> send </button>
     </form>
-    <div class="comments">
-
-    </div>
+    <a href="reviews.html"><button class="link-button">see reviews</button></a>
 
 
+    <script src="review.js"></script>
+    <script src="product.js"></script>
+    <script src="commentManager.js">
+    </script>
     <script>
-
-        class Bible {
-
-            #books = [];
-            constructor(books = []) {
-                for (let i = 0; i < books - 1; i++) {
-                    for (j = i + 1; j < books; j++) {
-                        if (books[i] == books[j]) {
-                            throw new Error("the array includes an doublicates")
-                        }
-                    }
-                }
-                this.#books = books;
-            }
-            allBooks() {
-                return this.#books;
-            }
-            addBook(title) {
-                if (this.#books.includes(title)) {
-                    throw new Error("its already includes")
-                } else {
-                    this.#books.push(title);
-                }
-            }
-            removeBook(title) {
-                if (!this.#books.includes(title)) {
-                    throw new Error(`it hasnt got ${title}`)
-                } else {
-                    this.#books.splice(this.#books.findIndex((item) => item == title), 1);
-                }
-            }
-            hasBook(title) {
-                if (!this.#books.includes(title)) {
-                    throw new Error(`it hasnt got ${title}`)
-                } else {
-                    return this.#books.find((item) => item == title);
-                }
-            }
-
-        }
-
-        let bible = new Bible()
-
-        class Comment {
-            static counter = 0;
-            constructor(text) {
-                Comment.counter++;
-                this.text = text;
-                this.id = Comment.counter;
-            }
-
-        }
-
-        function commentManager() {
-            let commentsBox = document.querySelector(".comments");
-            console.log(commentsBox)
-
-            let newComment = function (commentText) {
-                if (commentText.length >= 50 && commentText.length <= 500) {
-                    return new Comment(commentText);
-                } else {
-                    throw new Error("incompatible length of the comment")
-                }
-            }
-
-            let addComment = function (comment) {
-                let commentBox = document.createElement("div");
-                commentBox.classList.add("comment")
-                commentBox.style.border = "1px solid black";
-                commentBox.style.padding = "1px";
-
-
-                // let commentHeading = document.createElement("h2");
-                // commentHeading.classList.add("comment__heading");
-                let commentBody = document.createElement("p");
-                commentBody.classList.add("comment__body");
-                commentBody.textContent = comment.text;
-                commentBody.style.wordBreak = "break-all";
-
-
-                commentBox.appendChild(commentBody);
-                commentsBox.appendChild(commentBox);
-
-            }
-            let start = function () {
-                let button = document.querySelector(".comment-form__button");
-                let input = document.querySelector(".comment-form__input");
-                button.addEventListener("click", (event) => {
-
-                    try {
-                        let comment = newComment(input.textContent);
-                        addComment(comment);
-                    } catch (Error) {
-                        console.log(Error);
-                    };
-
-                })
-
-            }
-            start();
-
-
-        }
-
         commentManager();
-
-        const initialData = [
-            {
-                product: "Apple iPhone 13",
-                reviews: [
-                    {
-                        id: "1",
-                        text: "Отличный телефон! Батарея держится долго.",
-                    },
-                    {
-                        id: "2",
-                        text: "Камера супер, фото выглядят просто потрясающе.",
-                    },
-                ],
-            },
-            {
-                product: "Samsung Galaxy Z Fold 3",
-                reviews: [
-                    {
-                        id: "3",
-                        text: "Интересный дизайн, но дорогой.",
-                    },
-                ],
-            },
-            {
-                product: "Sony PlayStation 5",
-                reviews: [
-                    {
-                        id: "4",
-                        text: "Люблю играть на PS5, графика на высоте.",
-                    },
-                ],
-            },
-        ];
-
-
     </script>
 
 </body>

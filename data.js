@@ -1,28 +1,35 @@
-let src = "https://api.thecatapi.com/v1/images/search?size=med&mime_types=jpg&format=json&has_breeds=true&order=RANDOM&page=0&limit=2";
-// let key = "DEMO-API-KEY";
-async function getJson() {
-    let response = await fetch(src);
-    let data = await response.json();
-    for (obj of data) {
-        console.log(obj.url);
-    }
-    return data;
-}
 
-async function getData(src) {
-    const url = "https://example.org/products.json";
-    try {
-        const response = await fetch(src);
-        if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
-        }
+const initialData = [
+    {
+        product: "Apple iPhone 13",
+        reviews: [
+            {
+                id: "1",
+                text: "Отличный телефон! Батарея держится долго.",
+            },
+            {
+                id: "2",
+                text: "Камера супер, фото выглядят просто потрясающе.",
+            },
+        ],
+    },
+    {
+        product: "Samsung Galaxy Z Fold 3",
+        reviews: [
+            {
+                id: "3",
+                text: "Интересный дизайн, но дорогой.",
+            },
+        ],
+    },
+    {
+        product: "Sony PlayStation 5",
+        reviews: [
+            {
+                id: "4",
+                text: "Люблю играть на PS5, графика на высоте.",
+            },
+        ],
+    },
+];
 
-        const json = await response.json();
-        console.log(json);
-    } catch (error) {
-        console.error(error.message);
-    }
-}
-
-getJson();
-getData(src);
