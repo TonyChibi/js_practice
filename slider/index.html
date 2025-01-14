@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            color: red;
+
+        }
+
+        .slider {
+            width: 1000px;
+            display: flex;
+
+        }
+
+        .imageBox {
+            display: flex;
+            flex-direction: column;
+            height: 500px;
+            width: 600px;
+            overflow: hidden;
+        }
+
+        .images {
+            display: flex;
+            height: 400px;
+            background-color: rgb(255, 234, 198);
+        }
+
+        .pagination {
+            cursor: pointer;
+            font-size: 2rem;
+            text-align: center;
+            height: 100px;
+            background-color: lightgray;
+        }
+
+        span:hover {
+            color: brown;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="slider">
+            <button class="prevBtn">prev</button>
+            <div class="imageBox">
+                <div class="images"></div>
+                <div class="pagination"></div>
+            </div>
+            <button class="nextBtn">next</button>
+        </div>
+
+    </main>
+
+
+    <script src="catsCatcher.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
